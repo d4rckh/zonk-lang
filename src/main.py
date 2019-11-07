@@ -1,4 +1,5 @@
 import lexer
+import parser
 
 def main():
 
@@ -9,7 +10,10 @@ def main():
 
     # Lexer
     lex = lexer.Lexer(content)
-    print(lex.tokenize())
+    tokens = lex.tokenize()
 
+    # Parser
+    parse = parser.Parser(tokens)
+    objs = parse.parse()
 
 main()
