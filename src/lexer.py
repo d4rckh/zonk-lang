@@ -20,7 +20,11 @@ class Lexer(object):
                     tokens.append(['IDENTIFIER', word[0:len(word) -1]])
                 else:
                     tokens.append(['IDENTIFIER', word]) # words
-            elif re.match('[0-9]', word): tokens.append(['INTEGER', word]) # integers
+            elif re.match('[0-9]', word): 
+                if word[len(word) - 1] == ";":
+                    tokens.append(['INTEGER', word[0:len(word) - 1]])
+                else:
+                    tokens.append(['INTEGER', word]) # integers
             elif word in "=/x=-+": tokens.append(['OPERATOR', word]) # operators
 
             source_index += 1
