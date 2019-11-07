@@ -15,7 +15,11 @@ class Lexer(object):
             word = source_code[source_index]
 
             if word == "var": tokens.append(["VAR_DECLARATION", word]) # variable declaration
-            elif re.match('[a-z]', word) or re.match('[A-Z]', word): tokens.append(['IDENTIFIER', word]) # words
+            elif re.match('[a-z]', word) or re.match('[A-Z]', word):
+                if word[len(word) - 1] == ';':
+                    tokens.append(['IDENTIFIER', word[0:len(word) -1]])
+                else:
+                    tokens.append(['IDENTIFIER', word]) # words
             elif re.match('[0-9]', word): tokens.append(['INTEGER', word]) # integers
             elif word in "=/x=-+": tokens.append(['OPERATOR', word]) # operators
 
