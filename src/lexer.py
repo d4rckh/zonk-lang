@@ -27,8 +27,7 @@ class Lexer(object):
                     tokens.append(['INTEGER', word]) # integers
             elif word in "=/x=-+": tokens.append(['OPERATOR', word]) # operators
 
-            if word[len(word) - 1] == ";":
-                tokens.append(['STATEMENT_END', ';'])
+            if word[len(word) - 1] == ";": tokens.append(['STATEMENT_END', ';']) # semicolons
 
             source_index += 1
         
