@@ -30,5 +30,5 @@ class Lexer(object):
             if word[len(word) - 1] == ";": tokens.append(['STATEMENT_END', ';']) # semicolons
 
             source_index += 1
-        
+        print(tokens)
         return tokens
