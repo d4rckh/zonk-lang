@@ -13,8 +13,9 @@ class Lexer(object):
          
         while source_index < len(source_code):
             word = source_code[source_index]
-
-            if word == "var": tokens.append(["VAR_DECLARATION", word]) # variable declaration
+        
+            # check variable declaration
+            if word == "var": tokens.append(["VAR_DECLARATION", word])
             elif re.match('[a-z]', word) or re.match('[A-Z]', word):
                 if word[len(word) - 1] == ';':
                     tokens.append(['IDENTIFIER', word[0:len(word) -1]])
