@@ -49,3 +49,5 @@ class Parser(object):
                 quit()
 
             tokens_checked += 1
+        
+        self.token_index += tokens_checked
